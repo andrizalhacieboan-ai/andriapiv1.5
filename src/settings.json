@@ -1,0 +1,430 @@
+{
+  "name": "Andri API",
+  "version": "1.0.0",
+  "description": "Simple and Easy-to-Use API Documentation",
+  "header": {
+    "status": "Online!",
+    "imageSrc": [
+      "https://x.xcute.workers.dev/f/videos/2b8eedc1b721.mp4"
+    ],
+    "imageSize": {
+      "mobile": "80%",
+      "tablet": "40%",
+      "desktop": "40%"
+    }
+  },
+  "apiSettings": {
+    "creator": "Andri Store"
+  },
+  "links": [
+    {
+      "name": "Source Code",
+      "url": "https://snippets-lemon-seven.vercel.app/"
+    },
+    {
+      "name": "Contact Me",
+      "url": "https://wa.me/6281934874758"
+    }
+  ],
+  "categories": [
+    {
+      "name": "AI (Artificial Intelligence)",
+      "items": [
+        {
+          "name": "Dolphin AI",
+          "desc": "Chat with Dolphin 24B AI (logical, creative, summarize, code)",
+          "method": "POST",
+          "path": "/api/ai/dolphin",
+          "innerDesc": "Masukkan pesan. Template opsional: logical, creative, summarize, code-beginner, code-advanced (default logical).",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "prompt", "required": true, "type": "text" },
+            { "name": "template", "required": false, "type": "text", "default": "logical" }
+          ]
+        }, 
+         {
+          "name": "GPT 3.5 Turbo",
+          "desc": "Chat with GPT-3.5 Turbo via Chat Everywhere engine.",
+          "method": "POST",
+          "path": "/api/ai/gpt",
+          "innerDesc": "Masukkan pesan/prompt obrolan atau kode. Menggunakan engine proxy Chat Everywhere.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "prompt", "required": true, "type": "text" },
+            { "name": "temperature", "required": false, "type": "text", "default": "0.5" }
+          ]
+        }, 
+        {
+          "name": "Gemini AI",
+          "desc": "Chat with Gemini AI with custom core instructions and multi-turn session tracker.",
+          "method": "POST",
+          "path": "/api/ai/gemini",
+          "innerDesc": "Masukkan parameter prompt obrolan. Gunakan token sessionId hasil response sebelumnya untuk melanjutkan obrolan bertingkat.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "prompt", "required": true, "type": "text" },
+            { "name": "instruction", "required": false, "type": "text", "default": "jawab pake bahasa gaul gen z banget..." },
+            { "name": "sessionId", "required": false, "type": "text", "default": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Random",
+      "items": [
+        {
+          "name": "Blue Archive",
+          "desc": "Random Blue Archive Image",
+          "method": "GET",
+          "path": "/api/random/ba",
+          "innerDesc": "Klik Execute untuk mendapatkan gambar random Blue Archive.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "items": [
+        {
+          "name": "YouTube",
+          "desc": "Search YouTube videos",
+          "method": "GET",
+          "path": "/api/search/youtube",
+          "innerDesc": "Masukkan kata kunci pencarian.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "q", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Google Lens",
+          "desc": "Search information and visual matches from an image URL",
+          "method": "GET",
+          "path": "/api/tools/glen",
+          "innerDesc": "Masukkan URL gambar publik yang ingin dilacak menggunakan Google Lens.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Pinterest Search",
+          "desc": "Search Pinterest pins and get results with media URLs.",
+          "method": "GET",
+          "path": "/api/search/pinterest",
+          "innerDesc": "Masukkan kata kunci pencarian pinterest.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "q", "required": true, "type": "text" },
+            { "name": "limit", "required": false, "type": "text", "default": "25" }
+          ]
+        }, 
+        {
+          "name": "TikTok Search & Audio",
+          "desc": "Search TikTok videos by query and automatically extract clean video and converted direct MP3 links.",
+          "method": "GET",
+          "path": "/api/search/tiktok",
+          "innerDesc": "Masukkan kata kunci video TikTok yang ingin dicari. Parameter count, cursor, dan hd bersifat opsional.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "q", "required": true, "type": "text" },
+            { "name": "count", "required": false, "type": "text", "default": "12" },
+            { "name": "cursor", "required": false, "type": "text", "default": "0" },
+            { "name": "hd", "required": false, "type": "text", "default": "1" }
+          ]
+        }, 
+        {
+          "name": "AI Prompt Search",
+          "desc": "Search high-quality text prompts and negative prompts for Stable Diffusion, Midjourney, etc.",
+          "method": "GET",
+          "path": "/api/search/prompt",
+          "innerDesc": "Masukkan kata kunci konsep gambar AI yang ingin dicari prompt-nya (Contoh: cyberpunk anime girl, cinematic hd). Parameter page dan limit bersifat opsional.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "q", "required": true, "type": "text" },
+            { "name": "page", "required": false, "type": "text", "default": "1" },
+            { "name": "limit", "required": false, "type": "text", "default": "10" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Downloader",
+      "items": [
+        {
+          "name": "TikTok Downloader",
+          "desc": "Download TikTok videos without watermark",
+          "method": "GET",
+          "path": "/api/download/tiktok",
+          "innerDesc": "Masukkan URL video TikTok yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Facebook Downloader",
+          "desc": "Download Facebook videos (SD/HD) and extract images/comments",
+          "method": "POST",
+          "path": "/api/download/facebook",
+          "innerDesc": "Masukkan URL postingan/video Facebook yang valid. Cookie dan UserAgent opsional.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "cookie", "required": false, "type": "text", "default": "" },
+            { "name": "useragent", "required": false, "type": "text", "default": "" }
+          ]
+        }, 
+        {
+          "name": "Twitter Downloader",
+          "desc": "Mengambil info twitter beserta media (Foto/Video) kualitas terbaik.",
+          "method": "GET",
+          "path": "/api/download/twitter",
+          "innerDesc": "Masukkan URL tweet X/Twitter yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "type": "text", "required": true }
+          ]
+        },
+        {
+          "name": "ytmp3 downloader",
+          "desc": "Download and convert YouTube videos to MP3 audio or MP4 video format.",
+          "method": "GET",
+          "path": "/api/download/ytmp3",
+          "innerDesc": "Masukkan URL video YouTube atau Video ID yang valid. Parameter format bersifat opsional (mp3 / mp4).",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "format", "required": false, "type": "text", "default": "mp3" }
+          ]
+        },
+        {
+          "name": "Instagram Downloader",
+          "desc": "Download Instagram media (Videos, Reels, Images) using post URL.",
+          "method": "GET",
+          "path": "/api/download/ig",
+          "innerDesc": "Masukkan URL postingan, reel, atau foto Instagram yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "CapCut Downloader",
+          "desc": "Download CapCut videos without watermark using video URL.",
+          "method": "GET",
+          "path": "/api/download/capcut",
+          "innerDesc": "Masukkan URL video CapCut yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Pinterest Downloader",
+          "desc": "Download media (Images, GIFs, Videos) from Pinterest using Pin URL.",
+          "method": "GET",
+          "path": "/api/download/pinterest",
+          "innerDesc": "Masukkan URL pinterest.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "MediaFire Downloader",
+          "desc": "Download files from MediaFire and get the direct download link.",
+          "method": "GET",
+          "path": "/api/download/mediafire",
+          "innerDesc": "Masukkan URL MediaFire yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        }, 
+        {
+          "name": "Spotify Downloader",
+          "desc": "Download tracks from Spotify with full metadata. Support direct audio stream option.",
+          "method": "GET",
+          "path": "/api/download/spotify",
+          "innerDesc": "Masukkan URL Track / Lagu Spotify yang valid. Tambahkan parameter &stream=true jika bot Anda ingin mengambil file direct media mp3-nya langsung.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "stream", "required": false, "type": "text", "default": "false" }
+          ]
+        },
+        {
+          "name": "SoundCloud Downloader",
+          "desc": "Download SoundCloud tracks with high quality audio.",
+          "method": "GET",
+          "path": "/api/download/scdl",
+          "innerDesc": "Masukkan URL Track / Lagu SoundCloud yang valid. Tambahkan parameter &stream=true jika bot Anda ingin mengambil file direct media mp3-nya langsung.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "stream", "required": false, "type": "text", "default": "false" }
+          ]
+        },
+        {
+          "name": "Threads Downloader",
+          "desc": "Download Threads media (Videos/Images).",
+          "method": "GET",
+          "path": "/api/download/threads",
+          "innerDesc": "Masukkan URL postingan Threads yang valid.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        }, 
+        {
+          "name": "Shopee Downloader",
+          "desc": "Download Shopee videos without watermark using video URL.",
+          "method": "GET",
+          "path": "/api/download/shopee",
+          "innerDesc": "Masukkan URL postingan atau video Shopee yang valid (Mendukung link shope.ee / shopee.co.id).",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sticker",
+      "items": [
+        {
+          "name": "Brat Generator",
+          "desc": "Generate text styled like the Brat album cover sticker",
+          "method": "POST",
+          "path": "/api/sticker/brat",
+          "innerDesc": "Masukkan teks untuk diubah menjadi gaya text Brat sticker.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "text", "required": true, "type": "text" },
+            { "name": "background", "required": false, "type": "text", "default": "#8ace00" },
+            { "name": "color", "required": false, "type": "text", "default": "#000000" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Convert",
+      "items": [
+        {
+          "name": "Image Upscaler",
+          "desc": "Upscale and enhance image resolution (2x, 4x) using ai.",
+          "method": "GET",
+          "path": "/api/convert/upscale",
+          "innerDesc": "Masukkan URL gambar publik yang ingin ditingkatkan kualitas tajamnya. Output berupa direct image JPEG.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "scale", "required": false, "type": "text", "default": "4" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "items": [
+        {
+          "name": "Img Prompt to Img",
+          "desc": "Edit images using AI prompt instructions (DeepAI Engine)",
+          "method": "POST",
+          "path": "/api/tools/deepai",
+          "innerDesc": "Masukkan URL gambar publik dan instruksi prompt perubahannya.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "prompt", "required": true, "type": "text" },
+            { "name": "action", "required": false, "type": "text", "default": "json" }
+          ]
+        },
+        {
+          "name": "Welcome & Intro Card",
+          "desc": "Generate custom Welcome, Leave, or Intro cards using Canvas Engine.",
+          "method": "GET",
+          "path": "/api/tools/welcome",
+          "innerDesc": "Masukkan URL gambar avatar publik dan konfigurasi teks sesuai tipe kartu (welcome, leave, intro). Output berupa direct image PNG.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" },
+            { "name": "type", "required": false, "type": "text", "default": "welcome" },
+            { "name": "text", "required": false, "type": "text", "default": "" }
+          ]
+        }, 
+        {
+          "name": "TikTok Stalker",
+          "desc": "Stalk TikTok profile information and statistics using username.",
+          "method": "GET",
+          "path": "/api/tools/tiktokstalk",
+          "innerDesc": "Masukkan username TikTok target (bisa menggunakan atau tanpa tanda @).",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "username", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Instagram Stalker",
+          "desc": "Stalk Instagram profile information and statistics using username.",
+          "method": "GET",
+          "path": "/api/tools/igstalk",
+          "innerDesc": "Masukkan username Instagram target.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "username", "required": true, "type": "text" }
+          ]
+        }, 
+        {
+          "name": "BypassUnlock",
+          "desc": "Bypass link restrictions (Linkvertise, etc.) using BypassUnlock Engine.",
+          "method": "GET",
+          "path": "/api/tools/bypassunlock",
+          "innerDesc": "Masukkan URL tautan terproteksi (seperti Linkvertise, dll) untuk di-bypass langsung.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "url", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "Fake OVO Generator",
+          "desc": "Generate a custom fake OVO balance receipt image using Canvas Engine.",
+          "method": "GET",
+          "path": "/api/tools/fakeovo",
+          "innerDesc": "Masukkan nominal jumlah saldo OVO yang ingin di-generate. Output berupa direct image PNG.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "amount", "required": true, "type": "text" }
+          ]
+        }, 
+        {
+          "name": "TikTok Story Viewer",
+          "desc": "View and download active TikTok stories by andri api.",
+          "method": "GET",
+          "path": "/api/tools/ttsw",
+          "innerDesc": "Masukkan username target (contoh: khaby.lame) atau paste langsung link profile utuh target.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "username", "required": true, "type": "text" }
+          ]
+        },
+        {
+          "name": "AM Premium",
+          "desc": "Request token link and verify Alight Motion premium account.",
+          "method": "GET",
+          "path": "/api/tools/am",
+          "innerDesc": "Gunakan action 'request' untuk meminta link token ke email, atau 'verify' untuk memproses verifikasi link Alight Motion.",
+          "params": [
+            { "name": "apikey", "required": true, "type": "text" },
+            { "name": "action", "required": true, "type": "text", "default": "request" },
+            { "name": "email", "required": true, "type": "text" },
+            { "name": "link", "required": false, "type": "text", "default": "" }
+          ]
+        }
+      ]
+    }
+  ]
+}
